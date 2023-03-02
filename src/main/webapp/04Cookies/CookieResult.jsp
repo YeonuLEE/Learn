@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CookieResult.jsp</title>
+</head>
+<body>
+<h2>쿠키 설정 직후 쿠키값 확인</h2>
+<%
+Cookie[] cookies = request.getCookies();  // 요청헤더의 모든 쿠키 얻어 오기
+if (cookies != null){
+	  for(Cookie c : cookies){
+		  String cookieName = c.getName();
+		  String cookieValue = c.getValue();
+		  out.println(String.format("%s : %s<br/>",cookieName,cookieValue));
+	  }
+	
+}
+%>
+</body>
+</html>
